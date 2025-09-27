@@ -1,0 +1,163 @@
+{
+  "name": "Bijendra Mishra",
+  "title": "Software Engineer | Full Stack Developer",
+  "location": "Pune, India",
+  "email": "bijendramishra2002@gmail.com",
+  "phone": "+91-9325784771",
+  "github": "https://github.com/Bijendramishra123",
+  "linkedin": "https://www.linkedin.com/in/bijendra-mishraa-17674",
+  "summary": "Results-oriented software developer with a proven track record in crafting efficient, scalable code using Java, React, and Python. Strong commitment to collaboration, problem-solving, and delivering impactful solutions. Experienced with APIs, full-stack development, and database integration.",
+  "skills": [
+    "Core Java",
+    "React.js",
+    "JavaScript",
+    "C#",
+    ".NET",
+    "Python",
+    "SQL",
+    "MongoDB",
+    "HTML",
+    "CSS",
+    "Bootstrap",
+    "Node.js",
+    "Docker",
+    "Machine Learning",
+    "Deep Learning",
+    "Flutter",
+    "flask",
+    "React-Native",
+    "React-expo",
+    "Next.js",
+    "Angular"
+  ],
+  "education": [
+    {
+      "degree": "Master of Computer Applications (MCA) in Artificial Intelligence",
+      "institution": "Parul University, Vadodara",
+      "year": "Expected 2026"
+    },
+    {
+      "degree": "BCA in Computer and Information Sciences",
+      "institution": "IMED Pune",
+      "year": "2024"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Junior Software Developer Intern",
+      "company": "MDI Networx, Pune",
+      "duration": "Feb 2024 – Apr 2024",
+      "details": [
+        "Developed RESTful APIs using ASP.NET Core / Web API.",
+        "Worked with Entity Framework Core for efficient data access and LINQ queries.",
+        "Implemented Authentication & Authorization using JWT and ASP.NET Identity.",
+        "Collaborated with senior developers for complex problem-solving.",
+        "Customized features for client applications to meet business requirements."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-1",
+      "title": "Ramayan FullStack App",
+      "slug": "ramayan-fullstack-app",
+      "tech": ["React", "Bootstrap", "ASP.NET Core Web API"],
+      "overview": "A full-stack web application that displays Ramayan content with login, registration, and password recovery features.",
+      "features": [
+        "User authentication & registration",
+        "Password recovery system",
+        "Dynamic shlokas content display",
+        "Bootstrap responsive UI"
+      ],
+      "github": "https://github.com/Bijendramishra123/Ramayan-gita-app",
+      "live": "",
+      "video": "/assets/videos/ramayan-demo.mp4"
+    },
+    {
+      "id": "project-2",
+      "title": "AI Placement Checker",
+      "slug": "ai-placement-checker",
+      "tech": ["Python", "Machine Learning", "React","MongoDB","JWT"],
+      "overview": "A machine learning project that predicts placement eligibility based on student data.",
+      "features": [
+        "Trains ML model on academic & activity dataset",
+        "Predicts placement probability",
+        "Frontend built with React",
+        "Interactive result visualization"
+      ],
+      "github": "https://github.com/Bijendramishra123",
+      "live": ""
+    },
+    {
+      "id": "project-3",
+      "title": "Resume Checker AI Web App",
+      "slug": "resume-checker-ai-web-app",
+      "tech": ["Python", "React", "ML","MongoDB","JWT"],
+      "overview": "An AI-powered application that analyzes resumes and provides improvement suggestions.",
+      "features": [
+        "Parses resume sections (skills, education, experience)",
+        "Scores keywords against job description",
+        "Provides suggestions for improvement",
+        "Web interface built with React"
+      ],
+      "github": "https://github.com/Bijendramishra123",
+      "live": "",
+      "video": "/assets/videos/resume-checker-demo.mp4"
+    },
+    {
+      "id": "project-4",
+      "title": "Rental-Roadies-App",
+      "slug": "rental-roadies-app",
+      "tech": ["React Native", "Expo", "JavaScript","ASP.NET Core Web API","Firebase","JWT"],
+      "overview": "A bike rental application built with React Native (Expo) where users can browse and rent bikes easily.",
+      "features": [
+        "Browse available bikes",
+        "Real-time pricing & booking system",
+        "Cross-platform with React Native + Expo",
+        "User-friendly mobile UI"
+      ],
+      "github": "https://github.com/Bijendramishra123/Rental-Roadies-App",
+      "live": "",
+      "video": "/assets/videos/rental-roadies-demo.mp4"
+    },
+    {
+      "id": "project-5",
+      "title": "Pantry Management System",
+      "slug": "pantry-management-system",
+      "tech": ["React", "Node.js", "ASP.NET Core Web API", "SQL_SERVER", "Bootstrap"],
+      "overview": "A web app to manage pantry inventory for small kitchens or shared accommodations.",
+      "features": [
+        "Add/Edit/Remove pantry items with categories",
+        "Track quantities & expiry dates",
+        "Low stock alerts & reports",
+        "Role-based authentication (Admin/User)",
+        "MongoDB database backend"
+      ],
+      "github": "https://github.com/Bijendramishra123/pantry-management-system",
+      "live": "",
+      "video": "/assets/videos/pantry-demo.mp4"
+    }
+  ],
+  "videos": [
+    {
+      "id": "video-1",
+      "title": "Ramayan FullStack App Overview",
+      "youtube": "/assets/videos/ramayan-demo.mp4"
+    },
+    {
+      "id": "video-2",
+      "title": "Resume Checker AI Web App Demo",
+      "youtube": "/assets/videos/resume-checker-demo.mp4"
+    },
+    {
+      "id": "video-3",
+      "title": "Rental Roadies App Demo",
+      "youtube": "/assets/videos/rental-roadies-demo.mp4"
+    },
+    {
+      "id": "video-4",
+      "title": "Pantry Management System Demo",
+      "youtube": "/assets/videos/pantry-demo.mp4"
+    }
+  ]
+}

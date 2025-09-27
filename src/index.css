@@ -1,0 +1,32 @@
+:root{
+  --primary: #3498db;
+  --accent-purple: #9b59b6;
+  --accent-orange: #f39c12;
+  --bg: #f8f9fa;
+  --max-width: 1200px;
+  --transition: 0.3s;
+}
+
+*{box-sizing:border-box}
+html,body,#root{
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  color:#222;
+}
+
+
+.container-custom{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:1rem;
+}
+
+
+a:focus{outline:2px solid rgba(52,152,219,0.35); outline-offset:2px}
+
+
+.page-wrap{padding-top:70px; min-height: calc(100vh - 120px);}

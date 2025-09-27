@@ -1,0 +1,130 @@
+:root {
+  --navbar-height: 64px;
+  --sidebar-width: 280px;
+  --sidebar-z: 900;
+  --overlay-z: 800;
+  --primary: #3498db;
+  --accent-purple: #9b59b6;
+  --bg: #f8f9fa;
+}
+
+.body-no-scroll {
+  overflow: hidden !important;
+}
+
+.sidebar {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  width: var(--sidebar-width);
+  bottom: 0;
+  background: linear-gradient(180deg, #fff, #fafafa);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: var(--sidebar-z);
+  overflow-y: auto;
+  padding-top: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.sidebar-inner {
+  padding: 1rem;
+}
+
+.sidebar-head {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.profile-photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--accent-purple);
+}
+
+.sidebar-section {
+  margin-bottom: 1rem;
+}
+
+.sidebar-section h5 {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.project-list,
+.video-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-list li,
+.video-list li {
+  margin-bottom: 0.4rem;
+}
+
+/* 🔥 Icons + text alignment for links */
+.project-list a,
+.video-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;                /* icon और text में spacing */
+  text-decoration: none;
+  color: var(--primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.project-list a:hover,
+.video-list a:hover {
+  color: var(--accent-purple);
+  transform: translateX(3px);
+  background: rgba(155, 89, 182, 0.05); /* हल्का background glow */
+}
+
+/* icons का size */
+.project-list .icon,
+.video-list .icon {
+  font-size: 1rem;
+  flex-shrink: 0; /* ताकि icon squish न हो */
+}
+
+.social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.social a {
+  font-size: 1.25rem;
+  color: #444;
+  transition: all 0.25s;
+}
+
+.social a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* overlay */
+.overlay {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: var(--overlay-z);
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    width: 78%;
+    max-width: 320px;
+  }
+}

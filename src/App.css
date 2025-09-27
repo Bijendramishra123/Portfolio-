@@ -1,0 +1,18 @@
+:root {
+  --navbar-height: 64px;
+}
+
+/* main content */
+main.page-wrap {
+  flex: 1;
+  padding-top: var(--navbar-height);
+  transition: padding-left 0.3s ease;
+  min-height: calc(100vh - var(--navbar-height) - 56px); /* footer adjust */
+}
+
+/* Only when sidebar is open on desktop, push content */
+@media (min-width: 992px) {
+  body.sidebar-open main.page-wrap {
+    padding-left: 280px; /* same as sidebar width */
+  }
+}
