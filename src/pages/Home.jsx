@@ -3,7 +3,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProjectCard from "../components/ProjectCard";
-import profileFallback from "../assets/profile-placeholder.png";
+import profileFallback from "../styles/profile-placeholder.png.png";
 import "./Home.css";
 
 export default function Home() {

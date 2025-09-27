@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 import { FiMenu } from 'react-icons/fi';
-import profileFallback from '../assets/profile-placeholder.png';
+import profileFallback from '../styles/profile-placeholder.png.png';
 
 export default function Navbar() {
   const toggleSidebar = () => {
