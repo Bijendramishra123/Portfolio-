@@ -2,14 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import './Profile.css';
 
-export default function Profile(){
-  const data = useSelector(s => s.resume);
+// Import image from styles folder (src/styles/)
+import placeholderImg from '../styles/profile-placeholder.png.png';
+
+export default function Profile() {
+  const data = useSelector(s => s.resume || {});
   const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState('personal');
+  const [photoSrc, setPhotoSrc] = useState(placeholderImg);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  useEffect(() => {
+    if (data.profilePhoto) {
+      setPhotoSrc(data.profilePhoto);
+    } else {
+      setPhotoSrc(placeholderImg);
+    }
+  }, [data]);
+
+  function handleImgError(e) {
+    e.target.src = placeholderImg;
+  }
 
   return (
     <div className={`profile container-custom ${isVisible ? 'visible' : ''}`}>
@@ -36,10 +52,11 @@ export default function Profile(){
             {/* Photo Section */}
             <div className="photo-section">
               <div className="photo-container">
-                <img 
-                  src={data.profilePhoto || "/assets/profile-placeholder.png"} 
-                  alt={data.name} 
+                <img
+                  src={photoSrc}
+                  alt={data.name || 'Profile'}
                   className="profile-photo"
+                  onError={handleImgError}
                 />
                 <div className="photo-overlay">
                   <div className="photo-badge">👋</div>
@@ -47,7 +64,7 @@ export default function Profile(){
                 <div className="photo-frame"></div>
                 <div className="status-indicator online"></div>
               </div>
-              
+
               {/* Quick Stats */}
               <div className="quick-stats">
                 <div className="stat-circle">
@@ -85,19 +102,19 @@ export default function Profile(){
 
               {/* Tabs Navigation */}
               <div className="tabs-navigation">
-                <button 
+                <button
                   className={`tab-btn ${activeTab === 'personal' ? 'active' : ''}`}
                   onClick={() => setActiveTab('personal')}
                 >
                   📱 Personal Info
                 </button>
-                <button 
+                <button
                   className={`tab-btn ${activeTab === 'professional' ? 'active' : ''}`}
                   onClick={() => setActiveTab('professional')}
                 >
                   💼 Professional
                 </button>
-                <button 
+                <button
                   className={`tab-btn ${activeTab === 'social' ? 'active' : ''}`}
                   onClick={() => setActiveTab('social')}
                 >
@@ -232,8 +249,8 @@ export default function Profile(){
           <h3>Top Skills</h3>
           <div className="skills-tags">
             {data.skills?.slice(0, 8).map((skill, index) => (
-              <span 
-                key={skill} 
+              <span
+                key={skill + index}
                 className="skill-tag"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >

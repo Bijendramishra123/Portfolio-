@@ -61,7 +61,11 @@
       "id": "project-1",
       "title": "Ramayan FullStack App",
       "slug": "ramayan-fullstack-app",
-      "tech": ["React", "Bootstrap", "ASP.NET Core Web API"],
+      "tech": [
+        "React",
+        "Bootstrap",
+        "ASP.NET Core Web API"
+      ],
       "overview": "A full-stack web application that displays Ramayan content with login, registration, and password recovery features.",
       "features": [
         "User authentication & registration",
@@ -71,13 +75,19 @@
       ],
       "github": "https://github.com/Bijendramishra123/Ramayan-gita-app",
       "live": "",
-      "video": "/assets/videos/ramayan-demo.mp4"
+      "video": "../assets/videos/ramayan-demo.mp4"
     },
     {
       "id": "project-2",
       "title": "AI Placement Checker",
       "slug": "ai-placement-checker",
-      "tech": ["Python", "Machine Learning", "React","MongoDB","JWT"],
+      "tech": [
+        "Python",
+        "Machine Learning",
+        "React",
+        "MongoDB",
+        "JWT"
+      ],
       "overview": "A machine learning project that predicts placement eligibility based on student data.",
       "features": [
         "Trains ML model on academic & activity dataset",
@@ -92,7 +102,13 @@
       "id": "project-3",
       "title": "Resume Checker AI Web App",
       "slug": "resume-checker-ai-web-app",
-      "tech": ["Python", "React", "ML","MongoDB","JWT"],
+      "tech": [
+        "Python",
+        "React",
+        "ML",
+        "MongoDB",
+        "JWT"
+      ],
       "overview": "An AI-powered application that analyzes resumes and provides improvement suggestions.",
       "features": [
         "Parses resume sections (skills, education, experience)",
@@ -108,7 +124,14 @@
       "id": "project-4",
       "title": "Rental-Roadies-App",
       "slug": "rental-roadies-app",
-      "tech": ["React Native", "Expo", "JavaScript","ASP.NET Core Web API","Firebase","JWT"],
+      "tech": [
+        "React Native",
+        "Expo",
+        "JavaScript",
+        "ASP.NET Core Web API",
+        "Firebase",
+        "JWT"
+      ],
       "overview": "A bike rental application built with React Native (Expo) where users can browse and rent bikes easily.",
       "features": [
         "Browse available bikes",
@@ -118,13 +141,19 @@
       ],
       "github": "https://github.com/Bijendramishra123/Rental-Roadies-App",
       "live": "",
-      "video": "/assets/videos/rental-roadies-demo.mp4"
+      "video": "../assets/videos/rental-roadies-demo.mp4"
     },
     {
       "id": "project-5",
       "title": "Pantry Management System",
       "slug": "pantry-management-system",
-      "tech": ["React", "Node.js", "ASP.NET Core Web API", "SQL_SERVER", "Bootstrap"],
+      "tech": [
+        "React",
+        "Node.js",
+        "ASP.NET Core Web API",
+        "SQL_SERVER",
+        "Bootstrap"
+      ],
       "overview": "A web app to manage pantry inventory for small kitchens or shared accommodations.",
       "features": [
         "Add/Edit/Remove pantry items with categories",
@@ -135,29 +164,29 @@
       ],
       "github": "https://github.com/Bijendramishra123/pantry-management-system",
       "live": "",
-      "video": "/assets/videos/pantry-demo.mp4"
+      "video": "../assets/videos/pantry-demo.mp4"
     }
   ],
   "videos": [
     {
       "id": "video-1",
       "title": "Ramayan FullStack App Overview",
-      "youtube": "/assets/videos/ramayan-demo.mp4"
+      "video": "../assets/videos/ramayan-demo.mp4"
     },
     {
       "id": "video-2",
       "title": "Resume Checker AI Web App Demo",
-      "youtube": "/assets/videos/resume-checker-demo.mp4"
+      "video": "/assets/videos/resume-checker-demo.mp4"
     },
     {
       "id": "video-3",
       "title": "Rental Roadies App Demo",
-      "youtube": "/assets/videos/rental-roadies-demo.mp4"
+      "video": "/assets/videos/rental-roadies-demo.mp4"
     },
     {
       "id": "video-4",
       "title": "Pantry Management System Demo",
-      "youtube": "/assets/videos/pantry-demo.mp4"
+      "video": "../assets/videos/pantry-demo.mp4"
     }
   ]
 }
