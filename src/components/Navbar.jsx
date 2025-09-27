@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 import { FiMenu } from 'react-icons/fi';
-
-import profileImg from '../assets/profile-placeholder.png';
+import profileFallback from '../assets/profile-placeholder.png';
 
 export default function Navbar() {
   const toggleSidebar = () => {
@@ -11,6 +10,13 @@ export default function Navbar() {
     const ev = new Event('sidebar:toggle');
     window.dispatchEvent(ev);
   };
+
+  // ✅ Resolve image path for GitHub Pages
+  const profileSrc = useMemo(() => {
+  const base = import.meta.env.BASE_URL || '/';
+  const imagePath = 'assets/profile-placeholder.png';
+  return `${base.replace(/\/?$/, '/')}${imagePath}`;
+}, []);
 
   return (
     <nav className="top-navbar">
@@ -23,8 +29,15 @@ export default function Navbar() {
           <FiMenu size={20} />
         </button>
         <Link to="/" className="brand">
-          {/* ✅ Image imported from src/assets */}
-          <img src={profileImg} alt="logo" className="brand-img" />
+          {/* ✅ Image resolved for GitHub Pages */}
+          <img
+            src={profileSrc}
+            alt="logo"
+            className="brand-img"
+            onError={(e) => {
+              e.target.src = profileFallback;
+            }}
+          />
           <span className="brand-text">Bijendra Mishra</span>
         </Link>
       </div>

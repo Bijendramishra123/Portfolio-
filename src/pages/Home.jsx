@@ -11,35 +11,21 @@ export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // simple entrance animation flag
     const t = setTimeout(() => setIsVisible(true), 60);
     return () => clearTimeout(t);
   }, []);
 
-  // Resolve profile image src:
-  // - if resume provides full URL => use it
-  // - if resume provides a public path starting with '/' => prepend BASE_URL so GitHub Pages works
-  // - otherwise fallback to imported image
+  // ✅ Updated image resolution logic for GitHub Pages
   const profileSrc = useMemo(() => {
     const p = data.profilePhoto;
-    if (!p) return profileFallback;
+    const base = import.meta.env.BASE_URL || "/";
+    const cleanedBase = base.endsWith("/") ? base : base + "/";
 
-    if (typeof p === "string") {
-      if (p.startsWith("http")) return p;
-      if (p.startsWith("/")) {
-        // import.meta.env.BASE_URL resolves to '/Portfolio-/' on gh-pages (build)
-        return `${import.meta.env.BASE_URL}${p.replace(/^\//, "")}`;
-      }
-      // relative path inside src/assets if user put filename like "profile-placeholder.png"
-      try {
-        // attempt to require from src/assets dynamically (Vite cannot dynamic import arbitrary strings reliably),
-        // so if it's not a url or absolute public path, fallback to public path resolution.
-        return `${import.meta.env.BASE_URL}${p}`;
-      } catch {
-        return profileFallback;
-      }
-    }
-    return profileFallback;
+    if (!p || typeof p !== "string") return profileFallback;
+    if (p.startsWith("http")) return p;
+
+    const cleanedPath = p.replace(/^\//, "");
+    return `${cleanedBase}${cleanedPath}`;
   }, [data.profilePhoto]);
 
   return (
@@ -101,6 +87,9 @@ export default function Home() {
               loading="lazy"
               width="320"
               height="320"
+              onError={(e) => {
+                e.target.src = profileFallback;
+              }}
             />
             <div className="photo-frame" aria-hidden="true" />
             <div className="floating-elements" aria-hidden="true">
@@ -153,4 +142,3 @@ export default function Home() {
     </div>
   );
 }
-
