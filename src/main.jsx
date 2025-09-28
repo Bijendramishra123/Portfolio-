@@ -7,11 +7,13 @@ import App from './App';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Localhost ke liye "/"  and GitHub Pages ke liye "/Portfolio-/"
+const basename = process.env.NODE_ENV === "production" ? "/Portfolio-/" : "/";
+
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* BrowserRouter */}
-      <BrowserRouter basename="/Portfolio-/">
+      <BrowserRouter basename={basename}>
         <App />
       </BrowserRouter>
     </Provider>
