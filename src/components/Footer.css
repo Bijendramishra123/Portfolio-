@@ -84,9 +84,16 @@
   font-size: 1.5rem;
   font-weight: 700;
   background: linear-gradient(135deg, #fff, #c7d2fe);
+  /* Vendor prefixes for background-clip */
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  /* Standard property */
   background-clip: text;
+  /* Vendor prefixes for text fill color */
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  /* Fallback for browsers that don't support background-clip: text */
+  color: transparent;
   margin-bottom: 0.25rem;
 }
 
@@ -438,8 +445,16 @@
   
   .footer-name {
     background: linear-gradient(135deg, #0f172a, #475569);
+    /* Vendor prefixes */
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    /* Standard property */
+    background-clip: text;
+    /* Vendor prefixes for text fill color */
     -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    /* Fallback */
+    color: transparent;
   }
   
   .footer-link,
@@ -472,5 +487,13 @@
   .heart-icon,
   .newsletter-form {
     animation: none;
+  }
+}
+
+/* Additional fix for mobile Safari */
+@supports (-webkit-touch-callout: none) {
+  .footer-name {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
   }
 }
