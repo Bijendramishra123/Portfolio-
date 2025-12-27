@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -8,11 +9,11 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
+import Experience from "./pages/Experience";
+import Skills from "./pages/Skills";
 import ProjectPage from "./pages/ProjectPage";
 import "./App.css";
-
-// alias variables so ESLint sees them as used
-const MotionDiv = motion.div;
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -22,89 +23,157 @@ const pageVariants = {
 
 const pageTransition = { duration: 0.35, ease: "easeOut" };
 
-export default function App() {
+function AnimatedRoutes() {
   const location = useLocation();
 
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <Home />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <About />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <Profile />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <Contact />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <Projects />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/experience"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <Experience />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/skills"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <Skills />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/projects/:slug"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <ProjectPage />
+            </motion.div>
+          }
+        />
+        {/* 404 Page */}
+        <Route
+          path="*"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+              className="page-container not-found"
+            >
+              <h1 className="gradient-text">404 - Page Not Found</h1>
+              <p className="mt-2">The page you're looking for doesn't exist.</p>
+              <a href="/" className="btn mt-3">
+                Go Back Home
+              </a>
+            </motion.div>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+export default function App() {
   return (
     <div className="app">
       <Navbar />
       <Sidebar />
-
-      <main className="page-wrap" aria-live="polite">
-        <AnimatePresence mode="wait" initial={false}>
-          <Routes location={location} key={location.pathname}>
-            <Route
-              path="/"
-              element={
-                <MotionDiv
-                  variants={pageVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={pageTransition}
-                >
-                  <Home />
-                </MotionDiv>
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <MotionDiv
-                  variants={pageVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={pageTransition}
-                >
-                  <About />
-                </MotionDiv>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <MotionDiv
-                  variants={pageVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={pageTransition}
-                >
-                  <Profile />
-                </MotionDiv>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <MotionDiv
-                  variants={pageVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={pageTransition}
-                >
-                  <Contact />
-                </MotionDiv>
-              }
-            />
-            <Route
-              path="/projects/:slug"
-              element={
-                <MotionDiv
-                  variants={pageVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={pageTransition}
-                >
-                  <ProjectPage />
-                </MotionDiv>
-              }
-            />
-          </Routes>
-        </AnimatePresence>
+      
+      <main className="main-content">
+        <AnimatedRoutes />
       </main>
 
       <Footer />

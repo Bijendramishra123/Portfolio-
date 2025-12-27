@@ -1,119 +1,191 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiMenu, FiX, FiHome, FiUser, FiFileText, FiMail, FiCode, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { SiLeetcode } from 'react-icons/si';
 import './Navbar.css';
-import { FiMenu, FiX } from 'react-icons/fi';
-import profileFallback from '../styles/profile-placeholder.png.png';
 
-export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  // Handle scroll effect
+  const navItems = [
+    { path: '/', label: 'Home', icon: <FiHome /> },
+    { path: '/about', label: 'About', icon: <FiUser /> },
+    { path: '/projects', label: 'Projects', icon: <FiCode /> },
+    { path: '/skills', label: 'Skills', icon: <FiCode /> },
+    { path: '/experience', label: 'Experience', icon: <FiFileText /> },
+    { path: '/contact', label: 'Contact', icon: <FiMail /> },
+  ];
+
+  const socialLinks = [
+    { icon: <FiGithub />, url: 'https://github.com', label: 'GitHub' },
+    { icon: <FiLinkedin />, url: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: <SiLeetcode />, url: 'https://leetcode.com', label: 'LeetCode' },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleSidebar = () => {
-    document.body.classList.toggle('sidebar-open');
-    const ev = new Event('sidebar:toggle');
-    window.dispatchEvent(ev);
-  };
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
-
-  // ✅ Resolve image path for GitHub Pages
-  const profileSrc = useMemo(() => {
-    const base = import.meta.env.BASE_URL || '/';
-    const imagePath = 'assets/profile-placeholder.png';
-    return `${base.replace(/\/?$/, '/')}${imagePath}`;
-  }, []);
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
 
   return (
     <>
-      <nav className={`top-navbar ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`navbar ${scrolled ? 'scrolled' : ''}`}
+      >
         <div className="nav-container">
-          <div className="nav-left">
-            <button
-              className="sidebar-toggle"
-              aria-label="Toggle sidebar"
-              onClick={toggleSidebar}
-            >
-              <FiMenu size={20} />
-            </button>
-            <Link to="/" className="brand" onClick={closeMobileMenu}>
-              <img
-                src={profileSrc}
-                alt="logo"
-                className="brand-img"
-                onError={(e) => {
-                  e.target.src = profileFallback;
-                }}
-              />
-              <span className="brand-text">Bijendra Mishra</span>
+          {/* Logo */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="logo"
+          >
+            <Link to="/" className="logo-link">
+              <div className="logo-icon">🤖</div>
+              <div className="logo-text">
+                <span className="logo-name">Bijendra</span>
+                <span className="logo-subtitle">AI Student</span>
+              </div>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="nav-links desktop-nav">
-            <NavLink to="/" end onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
-              Home
-            </NavLink>
-            <NavLink to="/about" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
-              About
-            </NavLink>
-            <NavLink to="/profile" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
-              Profile
-            </NavLink>
-            <NavLink to="/contact" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
-              Contact
-            </NavLink>
+          <div className="nav-links">
+            {navItems.map((item) => (
+              <motion.div
+                key={item.path}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) => 
+                    `nav-link ${isActive ? 'active' : ''}`
+                  }
+                >
+                  <span className="nav-icon">{item.icon}</span>
+                  <span className="nav-label">{item.label}</span>
+                  <motion.div
+                    className="nav-underline"
+                    layoutId="underline"
+                  />
+                </NavLink>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Social Links */}
+          <div className="social-links">
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={social.label}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="social-link"
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="mobile-menu-toggle"
-            aria-label="Toggle mobile menu"
-            onClick={toggleMobileMenu}
+          <motion.button
+            className="menu-btn"
+            onClick={() => setIsOpen(!isOpen)}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                >
+                  <FiX size={24} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                >
+                  <FiMenu size={24} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
 
-        {/* Mobile Navigation Menu */}
-        <div className={`mobile-nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
-          <NavLink to="/" end onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
-            <span className="nav-icon">🏠</span>
-            Home
-          </NavLink>
-          <NavLink to="/about" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
-            <span className="nav-icon">👤</span>
-            About
-          </NavLink>
-          <NavLink to="/profile" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
-            <span className="nav-icon">📄</span>
-            Profile
-          </NavLink>
-          <NavLink to="/contact" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
-            <span className="nav-icon">📧</span>
-            Contact
-          </NavLink>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="mobile-menu-overlay" onClick={closeMobileMenu} />
-      )}
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="mobile-menu"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+            >
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.path}
+                  initial={{ x: -50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) => 
+                      `mobile-nav-link ${isActive ? 'active' : ''}`
+                    }
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <span className="mobile-nav-icon">{item.icon}</span>
+                    {item.label}
+                  </NavLink>
+                </motion.div>
+              ))}
+              
+              <div className="mobile-social">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mobile-social-link"
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
     </>
   );
-}
+};
+
+export default Navbar;

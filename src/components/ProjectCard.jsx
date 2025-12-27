@@ -1,17 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { 
+  FiExternalLink, 
+  FiGithub, 
+  FiStar, 
+  FiEye, 
+  FiClock,
+  FiCode,
+  FiGlobe,
+  FiChevronRight
+} from 'react-icons/fi';
+import { TbBrandReact, TbBrandPython, TbBrandJavascript } from 'react-icons/tb';
 import './ProjectCard.css';
-import { Link } from 'react-router-dom';
 
-export default function ProjectCard({ project, delay = 0 }) {
+const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
+  
+  // Mouse position tracking for 3D effect
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  const rotateX = useSpring(useTransform(mouseY, [-100, 100], [10, -10]), {
+    stiffness: 200,
+    damping: 30
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-100, 100], [-10, 10]), {
+    stiffness: 200,
+    damping: 30
+  });
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, delay);
-    return () => clearTimeout(timer);
-  }, [delay]);
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    mouseX.set(x);
+    mouseY.set(y);
+  };
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -19,170 +48,223 @@ export default function ProjectCard({ project, delay = 0 }) {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+    mouseX.set(0);
+    mouseY.set(0);
   };
 
-  // Generate a unique gradient based on project title
-  const getGradient = (title) => {
-    const colors = [
-      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      'linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)',
-      'linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)'
-    ];
-    
-    // Simple hash function to get consistent color for same project
-    const hash = title.split('').reduce((a, b) => {
-      a = ((a << 5) - a) + b.charCodeAt(0);
-      return a & a;
-    }, 0);
-    
-    return colors[Math.abs(hash) % colors.length];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+  // Get tech icon
+  const getTechIcon = (tech) => {
+    const icons = {
+      'React': <TbBrandReact />,
+      'Python': <TbBrandPython />,
+      'JavaScript': <TbBrandJavascript />,
+      'Node.js': <FiCode />,
+      'TypeScript': <FiCode />,
+      'Next.js': <FiGlobe />,
+      'Vue': <FiCode />,
+      'Angular': <FiCode />,
+      'Django': <FiCode />,
+      'Flask': <FiCode />,
+      'MongoDB': <FiCode />,
+      'PostgreSQL': <FiCode />,
+      'Firebase': <FiCode />,
+      'AWS': <FiGlobe />,
+      'Docker': <FiCode />,
+    };
+    return icons[tech] || <FiCode />;
   };
 
   return (
-    <article 
-      className={`project-card ${isVisible ? 'visible' : ''} ${isHovered ? 'hovered' : ''}`}
+    <motion.div
+      ref={cardRef}
+      className="project-card"
+      initial={{ opacity: 0, y: 50 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{ background: getGradient(project.title) }}
+      style={{
+        rotateX: isHovered ? rotateX : 0,
+        rotateY: isHovered ? rotateY : 0,
+        transformStyle: 'preserve-3d',
+      }}
     >
-      {/* Animated Background Elements */}
-      <div className="color-background">
-        <div className="bg-shape shape-1"></div>
-        <div className="bg-shape shape-2"></div>
-        <div className="bg-shape shape-3"></div>
-        <div className="bg-shine"></div>
-      </div>
+      {/* Glassmorphism Background Layers */}
+      <div className="glass-layer layer-1"></div>
+      <div className="glass-layer layer-2"></div>
+      <div className="glass-layer layer-3"></div>
       
-      {/* Project Content */}
-      <div className="project-content">
-        {/* Header with Title and Tech */}
-        <div className="project-head">
-          <div className="title-wrapper">
+      {/* Animated Gradient Background */}
+      <div className="gradient-bg">
+        <div className="gradient gradient-1"></div>
+        <div className="gradient gradient-2"></div>
+        <div className="gradient gradient-3"></div>
+      </div>
+
+      {/* Floating Particles */}
+      <div className="floating-particles">
+        {[...Array(8)].map((_, i) => (
+          <div key={i} className="particle"></div>
+        ))}
+      </div>
+
+      {/* Card Content */}
+      <div className="card-content" style={{ transform: 'translateZ(50px)' }}>
+        
+        {/* Header with Icon and Title */}
+        <div className="card-header">
+          <motion.div 
+            className="project-icon"
+            animate={isHovered ? { rotate: 360 } : { rotate: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            {getTechIcon(project.tech?.[0] || 'React')}
+          </motion.div>
+          
+          <div className="header-text">
             <h3 className="project-title">{project.title}</h3>
-            {project.featured && (
-              <div className="featured-badge">
-                <span className="featured-star">⭐</span>
-                Featured
+            <div className="project-category">
+              <span className="category-badge">{project.category}</span>
+              {project.featured && (
+                <motion.div 
+                  className="featured-badge"
+                  animate={{ scale: isHovered ? 1.1 : 1 }}
+                  transition={{ repeat: Infinity, duration: 2, repeatType: 'reverse' }}
+                >
+                  <FiStar /> Featured
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Project Description */}
+        <motion.p 
+          className="project-description"
+          animate={{ 
+            opacity: isHovered ? 1 : 0.8,
+            x: isHovered ? 0 : -10 
+          }}
+        >
+          {project.description}
+        </motion.p>
+
+        {/* Tech Stack with Icons */}
+        <div className="tech-stack">
+          <h4 className="tech-title">Tech Stack</h4>
+          <div className="tech-icons">
+            {project.tech?.slice(0, 5).map((tech, i) => (
+              <motion.div
+                key={tech}
+                className="tech-icon"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ scale: 1.2, rotate: 360 }}
+              >
+                {getTechIcon(tech)}
+                <span className="tech-tooltip">{tech}</span>
+              </motion.div>
+            ))}
+            {project.tech && project.tech.length > 5 && (
+              <div className="more-tech">
+                +{project.tech.length - 5}
               </div>
             )}
           </div>
-          <div className="badges">
-            {project.tech?.slice(0,4).map((t, index) => (
-              <span 
-                key={t} 
-                className="tech"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {t}
-              </span>
-            ))}
-            {project.tech && project.tech.length > 4 && (
-              <span className="tech-more">+{project.tech.length - 4}</span>
-            )}
+        </div>
+
+        {/* Project Stats */}
+        <div className="project-stats">
+          <div className="stat">
+            <FiClock />
+            <span>{project.duration || '3 months'}</span>
+          </div>
+          <div className="stat">
+            <FiEye />
+            <span>{project.views || '1.2k'}</span>
+          </div>
+          <div className="stat">
+            <FiStar />
+            <span>{project.likes || '89'}</span>
           </div>
         </div>
-        
-        {/* Project Metadata */}
-        <div className="project-meta">
-          {project.duration && (
-            <div className="meta-item">
-              <span className="meta-icon">⏱️</span>
-              <span className="meta-text">{project.duration}</span>
-            </div>
-          )}
-          {project.status && (
-            <div className="meta-item">
-              <span className="meta-icon">📊</span>
-              <span className="meta-text">{project.status}</span>
-            </div>
-          )}
-          {project.category && (
-            <div className="meta-item">
-              <span className="meta-icon">📁</span>
-              <span className="meta-text">{project.category}</span>
-            </div>
-          )}
-        </div>
-        
-        {/* Project Description */}
-        <div className="description-container">
-          <p className="project-desc">{project.description}</p>
-          <div className="read-more">Read more...</div>
-        </div>
-        
+
         {/* Action Buttons */}
-        <div className="project-actions">
-          <Link to={`/projects/${project.slug}`} className="btn btn-primary">
-            <span className="btn-text">View Details</span>
-            <span className="btn-icon"></span>
-          </Link>
-          {project.github && (
-            <a 
-              className="btn btn-secondary" 
-              href={project.github} 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <span className="btn-text">Code</span>
-              <span className="btn-icon">💻</span>
-            </a>
-          )}
-          {project.demo && (
-            <a 
-              className="btn btn-tertiary" 
-              href={project.demo} 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <span className="btn-text">Live Demo</span>
-              <span className="btn-icon"></span>
-            </a>
-          )}
-        </div>
-        
-        {/* Footer with Tags */}
-        <div className="project-footer">
-          {project.tags && (
-            <div className="project-tags">
-              {project.tags.slice(0, 3).map((tag, index) => (
-                <span 
-                  key={tag} 
-                  className="tag"
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          )}
+        <div className="action-buttons">
+          <motion.a
+            href={project.github || '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-code"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FiGithub />
+            <span>Code</span>
+          </motion.a>
           
-          {/* View Count/Likes */}
-          <div className="project-stats">
-            {project.views && (
-              <span className="stat">
-                 {project.views}
-              </span>
-            )}
-            {project.likes && (
-              <span className="stat">
-                 {project.likes}
-              </span>
-            )}
-          </div>
+          <motion.a
+            href={project.demo || '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-demo"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FiExternalLink />
+            <span>Live Demo</span>
+          </motion.a>
+          
+          <motion.button
+            className="btn btn-details"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span>Details</span>
+            <FiChevronRight />
+          </motion.button>
         </div>
+
+        {/* Hover Effect Glow */}
+        {isHovered && (
+          <motion.div 
+            className="hover-glow"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
       </div>
 
-      {/* Hover Effect Elements */}
-      <div className="hover-effects">
-        <div className="effect-circle circle-1"></div>
-        <div className="effect-circle circle-2"></div>
-        <div className="effect-circle circle-3"></div>
-      </div>
-    </article>
+      {/* Edge Glow Effect */}
+      <div className="edge-glow"></div>
+    </motion.div>
   );
-}
+};
+
+export default ProjectCard;
