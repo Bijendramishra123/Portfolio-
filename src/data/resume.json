@@ -1,16 +1,19 @@
 {
   "name": "Bijendra Mishra",
-  "title": "Software Engineer",
+  "title": "Full Stack Developer & AI Engineer",
   "location": "Pune, India",
   "email": "bijendramishra2002@gmail.com",
   "phone": "+91-9325784771",
   "github": "https://github.com/Bijendramishra123",
-  "linkedin": "https://www.linkedin.com/in/bijendra-mishraa-176744279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-  "summary": "Results-oriented software developer with a proven track record in crafting efficient, scalable code using Java, React, and Python. Strong commitment to collaboration, problem-solving, and delivering impactful solutions. Experienced with APIs, full-stack development, and database integration.",
+  "linkedin": "https://www.linkedin.com/in/bijendra-mishraa-176744279",
+  "summary": "Innovative Full Stack Developer and AI Engineer specializing in creating scalable, efficient solutions using cutting-edge technologies. Passionate about AI/ML integration, clean code architecture, and delivering exceptional user experiences.",
+  "profile_image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400",
+
   "skills": [
     "Core Java",
     "React.js",
     "JavaScript",
+    "TypeScript",
     "C#",
     ".NET",
     "Python",
@@ -19,174 +22,375 @@
     "HTML",
     "CSS",
     "Bootstrap",
+    "Tailwind CSS",
     "Node.js",
     "Docker",
     "Machine Learning",
     "Deep Learning",
     "Flutter",
-    "flask",
+    "Flask",
+    "FastAPI",
+    "Django",
     "React-Native",
-    "React-expo",
+    "React-Expo",
     "Next.js",
-    "Angular"
+    "Angular",
+    "TensorFlow",
+    "PyTorch",
+    "OpenAI API",
+    "AWS",
+    "Git",
+    "REST APIs",
+    "GraphQL",
+    "WebSockets"
   ],
+
   "education": [
     {
       "degree": "Master of Computer Applications (MCA) in Artificial Intelligence",
       "institution": "Parul University, Vadodara",
-      "year": "2026"
+      "year": "2026",
+      "icon": "🎓",
+      "description": "Specializing in AI/ML with focus on deep learning, NLP, and computer vision applications."
     },
     {
       "degree": "BCA in Computer and Information Sciences",
       "institution": "IMED Pune",
-      "year": "2024"
+      "year": "2024",
+      "icon": "📚",
+      "description": "Graduated with honors, focusing on software development and database management."
     }
   ],
+
   "experience": [
     {
       "role": "Junior Software Developer Intern",
       "company": "MDI Networx, Pune",
       "duration": "Feb 2024 – Apr 2024",
+      "icon": "💼",
       "details": [
-        "Developed RESTful APIs using ASP.NET Core / Web API.",
-        "Worked with Entity Framework Core for efficient data access and LINQ queries.",
-        "Implemented Authentication & Authorization using JWT and ASP.NET Identity.",
-        "Collaborated with senior developers for complex problem-solving.",
-        "Customized features for client applications to meet business requirements."
+        "Developed scalable RESTful APIs using ASP.NET Core Web API",
+        "Implemented Entity Framework Core for efficient database operations",
+        "Built secure authentication systems using JWT and ASP.NET Identity",
+        "Collaborated with senior developers on complex problem-solving",
+        "Customized client applications to meet specific business requirements"
       ]
     }
   ],
+
   "projects": [
     {
       "id": "project-1",
+      "title": "AI Chat Assistant",
+      "slug": "ai-chat-assistant",
+      "tech": ["React", "Node.js", "OpenAI API", "Socket.io", "TypeScript", "MongoDB", "Tailwind CSS"],
+      "overview": "Intelligent chatbot powered by GPT-4 with real-time responses, sentiment analysis, and multi-language support. Features context-aware conversations and learning capabilities.",
+      "fullDescription": "A sophisticated AI chat assistant that leverages OpenAI's GPT-4 model to provide intelligent, context-aware conversations. The system includes real-time messaging via WebSockets, user authentication, conversation history storage, and sentiment analysis for better interaction quality.",
+      "category": "AI/ML",
+      "duration": "4 months",
+      "teamSize": "Solo",
+      "status": "Live",
+      "views": 2450,
+      "likes": 189,
+      "features": [
+        "Real-time chat with WebSocket connections",
+        "Context-aware conversation memory",
+        "Multi-language support",
+        "Sentiment analysis for responses",
+        "Conversation history and export",
+        "Admin dashboard for analytics"
+      ],
+      "github": "https://github.com/Bijendramishra123",
+      "live": "https://ai-chat-demo.bijendra.com",
+      "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800",
+      "tags": ["AI", "Chatbot", "Real-time", "GPT-4", "WebSockets"],
+      "featured": true
+    },
+
+    {
+      "id": "project-2",
+      "title": "Weather Dashboard Pro",
+      "slug": "weather-dashboard-pro",
+      "tech": ["Django", "Python", "React", "OpenWeather API", "Chart.js", "PostgreSQL", "Docker"],
+      "overview": "Advanced weather forecasting application with interactive maps, historical data analysis, and location-based alerts using Django backend and React frontend.",
+      "fullDescription": "A comprehensive weather application that provides real-time forecasts, interactive weather maps, historical data trends, and customizable alerts. Built with Django REST Framework backend and modern React frontend for optimal performance.",
+      "category": "Web App",
+      "duration": "3 months",
+      "teamSize": "Solo",
+      "status": "Complete",
+      "views": 1870,
+      "likes": 142,
+      "features": [
+        "Real-time weather forecasts for any location",
+        "Interactive weather maps with multiple layers",
+        "Historical weather data analysis",
+        "Customizable weather alerts",
+        "Multi-day forecast charts",
+        "Location-based recommendations"
+      ],
+      "github": "https://github.com/Bijendramishra123",
+      "live": "https://weather.bijendra.com",
+      "thumbnail": "https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800",
+      "tags": ["Weather", "Django", "API Integration", "Data Visualization"],
+      "featured": true
+    },
+
+    {
+      "id": "project-3",
+      "title": "Modern Portfolio v3.0",
+      "slug": "modern-portfolio-v3",
+      "tech": ["Next.js", "TypeScript", "Framer Motion", "Three.js", "Tailwind CSS", "Vercel"],
+      "overview": "Contemporary portfolio website featuring 3D animations, smooth transitions, and interactive elements to showcase projects and skills effectively.",
+      "fullDescription": "A cutting-edge portfolio website built with Next.js 14 and TypeScript, featuring 3D animations using Three.js, smooth page transitions with Framer Motion, and fully responsive design. Optimized for performance and SEO.",
+      "category": "Portfolio",
+      "duration": "2 months",
+      "teamSize": "Solo",
+      "status": "In Progress",
+      "views": 980,
+      "likes": 76,
+      "features": [
+        "3D animated hero section",
+        "Interactive project showcase",
+        "Dark/Light mode toggle",
+        "Performance optimized (95+ Lighthouse score)",
+        "Blog integration",
+        "Contact form with email integration"
+      ],
+      "github": "https://github.com/Bijendramishra123",
+      "live": "https://bijendra.dev",
+      "thumbnail": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800",
+      "tags": ["Portfolio", "Next.js", "3D Animation", "Performance"],
+      "featured": false
+    },
+
+    {
+      "id": "project-4",
       "title": "Ramayan FullStack App",
       "slug": "ramayan-fullstack-app",
-      "tech": [
-        "React",
-        "Bootstrap",
-        "ASP.NET Core Web API"
-      ],
+      "tech": ["React", "Bootstrap", "ASP.NET Core Web API", "SQL Server", "JWT"],
       "overview": "A full-stack web application that displays Ramayan content with login, registration, and password recovery features.",
+      "fullDescription": "Complete web application showcasing Ramayan content with user authentication, registration system, password recovery, and responsive design. Features dynamic content loading and user management.",
+      "category": "Web App",
+      "duration": "2 months",
+      "teamSize": "Solo",
+      "status": "Complete",
+      "views": 1560,
+      "likes": 98,
       "features": [
         "User authentication & registration",
         "Password recovery system",
         "Dynamic shlokas content display",
-        "Bootstrap responsive UI"
+        "Bootstrap responsive UI",
+        "Search functionality",
+        "Bookmark favorite verses"
       ],
       "github": "https://github.com/Bijendramishra123/Ramayan-gita-app",
       "live": "",
-      "video": "../assets/videos/ramayan-demo.mp4"
+      "thumbnail": "https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=800",
+      "tags": ["Full-stack", "ASP.NET", "Authentication", "Cultural"],
+      "featured": true
     },
+
     {
-      "id": "project-2",
+      "id": "project-5",
       "title": "AI Placement Checker",
       "slug": "ai-placement-checker",
-      "tech": [
-        "Python",
-        "Machine Learning",
-        "React",
-        "MongoDB",
-        "JWT"
-      ],
-      "overview": "A machine learning project that predicts placement eligibility based on student data.",
+      "tech": ["Python", "Machine Learning", "React", "MongoDB", "JWT", "Scikit-learn"],
+      "overview": "A machine learning project that predicts placement eligibility based on student academic and extracurricular data.",
+      "fullDescription": "AI-powered placement prediction system that analyzes student academic performance, skills, and extracurricular activities to predict placement probability with high accuracy using ensemble learning methods.",
+      "category": "AI/ML",
+      "duration": "3 months",
+      "teamSize": "Team of 3",
+      "status": "Complete",
+      "views": 1340,
+      "likes": 112,
       "features": [
         "Trains ML model on academic & activity dataset",
-        "Predicts placement probability",
-        "Frontend built with React",
-        "Interactive result visualization"
+        "Predicts placement probability with confidence scores",
+        "Interactive data visualization dashboard",
+        "Multiple ML algorithms comparison",
+        "Student performance insights",
+        "Export predictions to PDF"
       ],
       "github": "https://github.com/Bijendramishra123",
-      "live": ""
+      "live": "",
+      "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800",
+      "tags": ["AI", "Machine Learning", "Education", "Prediction"],
+      "featured": true
     },
+
     {
-      "id": "project-3",
+      "id": "project-6",
       "title": "Resume Checker AI Web App",
       "slug": "resume-checker-ai-web-app",
-      "tech": [
-        "Python",
-        "React",
-        "ML",
-        "MongoDB",
-        "JWT"
-      ],
-      "overview": "An AI-powered application that analyzes resumes and provides improvement suggestions.",
+      "tech": ["Python", "React", "ML", "MongoDB", "JWT", "NLP", "FastAPI"],
+      "overview": "An AI-powered application that analyzes resumes and provides improvement suggestions based on job descriptions.",
+      "fullDescription": "Intelligent resume analyzer that uses NLP and machine learning to evaluate resumes against job descriptions, providing detailed feedback and improvement suggestions to increase hiring chances.",
+      "category": "AI/ML",
+      "duration": "4 months",
+      "teamSize": "Solo",
+      "status": "Live",
+      "views": 1890,
+      "likes": 156,
       "features": [
         "Parses resume sections (skills, education, experience)",
         "Scores keywords against job description",
-        "Provides suggestions for improvement",
-        "Web interface built with React"
+        "Provides AI-powered improvement suggestions",
+        "ATS compatibility checking",
+        "Resume formatting recommendations",
+        "Export analysis reports"
       ],
       "github": "https://github.com/Bijendramishra123",
-      "live": "",
-      "video": "/assets/videos/resume-checker-demo.mp4"
+      "live": "https://resume-checker.bijendra.com",
+      "thumbnail": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800",
+      "tags": ["AI", "NLP", "Resume", "ATS", "Career"],
+      "featured": true
     },
+
     {
-      "id": "project-4",
-      "title": "Rental-Roadies-App",
+      "id": "project-7",
+      "title": "Rental Roadies App",
       "slug": "rental-roadies-app",
-      "tech": [
-        "React Native",
-        "Expo",
-        "JavaScript",
-        "ASP.NET Core Web API",
-        "Firebase",
-        "JWT"
-      ],
-      "overview": "A bike rental application built with React Native (Expo) where users can browse and rent bikes easily.",
+      "tech": ["React Native", "Expo", "JavaScript", "ASP.NET Core Web API", "Firebase", "JWT"],
+      "overview": "A bike rental application built with React Native where users can browse, compare, and rent bikes with ease.",
+      "fullDescription": "Mobile-first bike rental platform with real-time availability, booking system, payment integration, and user reviews. Built with React Native for cross-platform compatibility.",
+      "category": "Mobile App",
+      "duration": "3 months",
+      "teamSize": "Team of 2",
+      "status": "Beta",
+      "views": 1240,
+      "likes": 89,
       "features": [
-        "Browse available bikes",
+        "Browse available bikes with filters",
         "Real-time pricing & booking system",
         "Cross-platform with React Native + Expo",
-        "User-friendly mobile UI"
+        "In-app payment processing",
+        "User reviews and ratings",
+        "GPS-based bike location tracking"
       ],
       "github": "https://github.com/Bijendramishra123/Rental-Roadies-App",
       "live": "",
-      "video": "../assets/videos/rental-roadies-demo.mp4"
+      "thumbnail": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800",
+      "tags": ["Mobile", "React Native", "Rental", "E-commerce"],
+      "featured": false
     },
+
     {
-      "id": "project-5",
+      "id": "project-8",
       "title": "Pantry Management System",
       "slug": "pantry-management-system",
-      "tech": [
-        "React",
-        "Node.js",
-        "ASP.NET Core Web API",
-        "SQL_SERVER",
-        "Bootstrap"
-      ],
-      "overview": "A web app to manage pantry inventory for small kitchens or shared accommodations.",
+      "tech": ["React", "Node.js", "ASP.NET Core Web API", "SQL Server", "Bootstrap"],
+      "overview": "A web app to manage pantry inventory for small kitchens or shared accommodations with smart tracking features.",
+      "fullDescription": "Comprehensive pantry management system with inventory tracking, expiry date alerts, shopping list generation, and consumption analytics for efficient kitchen management.",
+      "category": "Web App",
+      "duration": "2 months",
+      "teamSize": "Solo",
+      "status": "Complete",
+      "views": 980,
+      "likes": 67,
       "features": [
         "Add/Edit/Remove pantry items with categories",
         "Track quantities & expiry dates",
-        "Low stock alerts & reports",
+        "Low stock alerts & automatic shopping lists",
         "Role-based authentication (Admin/User)",
-        "MongoDB database backend"
+        "Consumption analytics and reports",
+        "Barcode scanning support"
       ],
       "github": "https://github.com/Bijendramishra123/pantry-management-system",
       "live": "",
-      "video": "../assets/videos/pantry-demo.mp4"
+      "thumbnail": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800",
+      "tags": ["Inventory", "Management", "Productivity", "Track"],
+      "featured": false
+    },
+
+    {
+      "id": "project-9",
+      "title": "E-Commerce Platform",
+      "slug": "e-commerce-platform",
+      "tech": ["Next.js", "Stripe", "MongoDB", "Tailwind CSS", "Node.js", "Redux"],
+      "overview": "Full-stack e-commerce solution with Stripe payment integration, admin dashboard, and real-time inventory management.",
+      "fullDescription": "Modern e-commerce platform with complete shopping cart functionality, secure payment processing, admin dashboard for order management, and real-time inventory updates.",
+      "category": "Web App",
+      "duration": "5 months",
+      "teamSize": "Team of 4",
+      "status": "Live",
+      "views": 3120,
+      "likes": 234,
+      "features": [
+        "Stripe payment integration",
+        "Real-time inventory management",
+        "Admin dashboard with analytics",
+        "Product search and filtering",
+        "User reviews and ratings",
+        "Order tracking and notifications"
+      ],
+      "github": "https://github.com/Bijendramishra123",
+      "live": "https://shop.bijendra.com",
+      "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800",
+      "tags": ["E-commerce", "Full-stack", "Payment", "Shopping"],
+      "featured": true
     }
   ],
+
   "videos": [
     {
       "id": "video-1",
-      "title": "Ramayan FullStack App Overview",
-      "video": "../assets/videos/ramayan-demo.mp4"
+      "title": "AI Chat Assistant Demo",
+      "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400"
     },
     {
       "id": "video-2",
-      "title": "Resume Checker AI Web App Demo",
-      "video": "/assets/videos/resume-checker-demo.mp4"
+      "title": "Weather Dashboard Pro Demo",
+      "thumbnail": "https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=400"
     },
     {
       "id": "video-3",
-      "title": "Rental Roadies App Demo",
-      "video": "/assets/videos/rental-roadies-demo.mp4"
+      "title": "Portfolio v3.0 Walkthrough",
+      "thumbnail": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=400"
     },
     {
       "id": "video-4",
-      "title": "Pantry Management System Demo",
-      "video": "../assets/videos/pantry-demo.mp4"
+      "title": "Ramayan App Overview",
+      "thumbnail": "https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=400"
+    }
+  ],
+
+  "certifications": [
+    {
+      "name": "AWS Certified Developer - Associate",
+      "issuer": "Amazon Web Services",
+      "year": "2024",
+      "icon": "☁️"
+    },
+    {
+      "name": "TensorFlow Developer Certificate",
+      "issuer": "Google",
+      "year": "2023",
+      "icon": "🤖"
+    },
+    {
+      "name": "Microsoft Certified: Azure Developer Associate",
+      "issuer": "Microsoft",
+      "year": "2023",
+      "icon": "💻"
+    }
+  ],
+
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent",
+      "icon": "🇺🇸"
+    },
+    {
+      "name": "Hindi",
+      "level": "Native",
+      "icon": "🇮🇳"
+    },
+    {
+      "name": "Marathi",
+      "level": "Conversational",
+      "icon": "🏳️"
     }
   ]
 }
