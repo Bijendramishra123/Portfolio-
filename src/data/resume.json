@@ -100,8 +100,9 @@
         "Conversation history and export",
         "Admin dashboard for analytics"
       ],
-      "github": "https://github.com/Bijendramishra123",
+      "github": "https://github.com/Bijendramishra123/ai-chat-assistant",
       "live": "https://ai-chat-demo.bijendra.com",
+      "video": "assets/videos/ai-chat-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800",
       "tags": ["AI", "Chatbot", "Real-time", "GPT-4", "WebSockets"],
       "featured": true
@@ -128,8 +129,9 @@
         "Multi-day forecast charts",
         "Location-based recommendations"
       ],
-      "github": "https://github.com/Bijendramishra123",
+      "github": "https://github.com/Bijendramishra123/weather-dashboard",
       "live": "https://weather.bijendra.com",
+      "video": "assets/videos/weather-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800",
       "tags": ["Weather", "Django", "API Integration", "Data Visualization"],
       "featured": true
@@ -156,8 +158,9 @@
         "Blog integration",
         "Contact form with email integration"
       ],
-      "github": "https://github.com/Bijendramishra123",
+      "github": "https://github.com/Bijendramishra123/portfolio-v3",
       "live": "https://bijendra.dev",
+      "video": "assets/videos/portfolio-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800",
       "tags": ["Portfolio", "Next.js", "3D Animation", "Performance"],
       "featured": false
@@ -186,6 +189,7 @@
       ],
       "github": "https://github.com/Bijendramishra123/Ramayan-gita-app",
       "live": "",
+      "video": "assets/videos/ramayan-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=800",
       "tags": ["Full-stack", "ASP.NET", "Authentication", "Cultural"],
       "featured": true
@@ -212,8 +216,9 @@
         "Student performance insights",
         "Export predictions to PDF"
       ],
-      "github": "https://github.com/Bijendramishra123",
+      "github": "https://github.com/Bijendramishra123/ai-placement-checker",
       "live": "",
+      "video": "assets/videos/placement-checker-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800",
       "tags": ["AI", "Machine Learning", "Education", "Prediction"],
       "featured": true
@@ -240,8 +245,9 @@
         "Resume formatting recommendations",
         "Export analysis reports"
       ],
-      "github": "https://github.com/Bijendramishra123",
+      "github": "https://github.com/Bijendramishra123/resume-checker-ai",
       "live": "https://resume-checker.bijendra.com",
+      "video": "assets/videos/resume-checker-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800",
       "tags": ["AI", "NLP", "Resume", "ATS", "Career"],
       "featured": true
@@ -270,6 +276,7 @@
       ],
       "github": "https://github.com/Bijendramishra123/Rental-Roadies-App",
       "live": "",
+      "video": "assets/videos/rental-roadies-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800",
       "tags": ["Mobile", "React Native", "Rental", "E-commerce"],
       "featured": false
@@ -298,6 +305,7 @@
       ],
       "github": "https://github.com/Bijendramishra123/pantry-management-system",
       "live": "",
+      "video": "assets/videos/pantry-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800",
       "tags": ["Inventory", "Management", "Productivity", "Track"],
       "featured": false
@@ -324,8 +332,9 @@
         "User reviews and ratings",
         "Order tracking and notifications"
       ],
-      "github": "https://github.com/Bijendramishra123",
+      "github": "https://github.com/Bijendramishra123/ecommerce-platform",
       "live": "https://shop.bijendra.com",
+      "video": "assets/videos/ecommerce-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800",
       "tags": ["E-commerce", "Full-stack", "Payment", "Shopping"],
       "featured": true
@@ -336,21 +345,25 @@
     {
       "id": "video-1",
       "title": "AI Chat Assistant Demo",
+      "video": "assets/videos/ai-chat-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400"
     },
     {
       "id": "video-2",
       "title": "Weather Dashboard Pro Demo",
+      "video": "assets/videos/weather-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=400"
     },
     {
       "id": "video-3",
       "title": "Portfolio v3.0 Walkthrough",
+      "video": "assets/videos/portfolio-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=400"
     },
     {
       "id": "video-4",
       "title": "Ramayan App Overview",
+      "video": "assets/videos/ramayan-demo.mp4",
       "thumbnail": "https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=400"
     }
   ],
